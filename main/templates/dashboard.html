@@ -3,5 +3,7 @@
 {% block content %}
 <h2>Welcome, {{ user.username }}!</h2>
 <p>This is your dashboard.</p>
+<p>Here you can manage your blogs, view statistics, and more.</p>
+<a class="nav-link" href="{% url 'create_blog' %}">✍️ Write Your Blog</a>
 {% endblock %}
 

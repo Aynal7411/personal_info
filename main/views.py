@@ -3,6 +3,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from .models import Blog
+from .forms import BlogForm
 # Create your views here.
 def register_view(request):
     if request.method == 'POST':
@@ -38,3 +40,19 @@ def logout_view(request):
 @login_required
 def dashboard(request):
     return render(request, 'dashboard.html')
+
+# blog/models.py
+
+def create_blog(request):
+    if request.method == "POST":
+        form = BlogForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('blog_list')  # blog list view
+    else:
+        form = BlogForm()
+    return render(request, 'create_blog.html', {'form': form})
+
+def blog_list(request):
+    blogs = Blog.objects.all().order_by('-created_at')
+    return render(request, 'blog_list.html', {'blogs': blogs})

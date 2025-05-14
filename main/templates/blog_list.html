@@ -1,0 +1,19 @@
+<!-- templates/blog/blog_list.html -->
+{% extends 'base.html' %}
+{% block title %}All Blogs{% endblock %}
+
+{% block content %}
+<h2>All Blogs</h2>
+<a href="{% url 'create_blog' %}" class="btn btn-success mb-3">Write New Blog</a>
+{% for blog in blogs %}
+    <div class="card mb-3">
+        <div class="card-header">{{ blog.title }} — <small>{{ blog.author }}</small></div>
+        <div class="card-body">
+            <p>{{ blog.content|truncatechars:150 }}</p>
+            <p><small>{{ blog.created_at }}</small></p>
+        </div>
+    </div>
+{% empty %}
+    <p>No blog posts found.</p>
+{% endfor %}
+{% endblock %}
