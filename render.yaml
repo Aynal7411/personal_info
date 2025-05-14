@@ -1,0 +1,16 @@
+services:
+  - type: web
+    plan: free
+    name: milon_home
+    runtime: python
+    buildCommand: './build.sh'
+    startCommand: 'python -m gunicorn milon_home.asgi:application ' 
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: mysitedb
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4
