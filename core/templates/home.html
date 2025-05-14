@@ -3,7 +3,23 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<h1>Welcome to everybody</h1>
+<div class="container mt-4 mb-4 p-4 bg-light shadow-sm rounded">
+    <h1 class="mb-4">Welcome to the Blog</h1>
+    <h2 class="mb-4">Publised blog</h2>
+
+    {% for blog in blogs %}
+        <div class="card mb-3 shadow-sm border">
+            <div class="card-body bg-light">
+               
+                <h4>{{ blog.title }}</h4>
+                <p class="bg-light ">{{ blog.content|truncatewords:25 }}</p>
+                <small>By {{ blog.author.username }} on {{ blog.created_at|date:"F d, Y" }}</small>
+            </div>
+        </div>
+    {% empty %}
+        <p>No blogs yet.</p>
+    {% endfor %}
+</div>
 {% endblock %}
 
 
