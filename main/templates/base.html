@@ -4,7 +4,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A simple Django site">
+    <meta name="author" content="Aynal Haque">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+   
     <title>{% block title %}My Site{% endblock %}</title>
 </head>
 <body>
@@ -26,5 +30,8 @@
     {% endif %}
 
     {% block content %}{% endblock %}
+
+    
+    
 </body>
 </html>
