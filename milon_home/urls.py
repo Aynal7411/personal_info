@@ -19,7 +19,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('core.urls')),  # Include the URLs from the core app
-    path('accounts/', include('main.urls')),  # Include the URLs from the main app
+     # Include the URLs from the core app
+    path('', include('main.urls')),  # Include the URLs from the main app
     path('products/', include('courses.urls')),  # Include the URLs from the courses app
 ]

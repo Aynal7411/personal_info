@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
 {% block title %}Dashboard{% endblock %}
 {% block content %}
-<h2>Welcome, {{ user.username }}!</h2>
-<p>This is your dashboard.</p>
-<p>Here you can manage your blogs, view statistics, and more.</p>
-<a class="nav-link" href="{% url 'create_blog' %}">✍️ Write Your Blog</a>
+<div class="dashboard-container">
+    <h2>👋 Welcome, {{ user.username }}!</h2>
+    <p>This is your personalized dashboard.</p>
+    <p>You can manage your blogs, view statistics, and much more here.</p>
+    
+    <a href="{% url 'create_blog' %}" class="btn dashboard-btn">✍️ Write Your Blog</a>
+</div>
 {% endblock %}
+
 

@@ -1,19 +1,24 @@
-<!-- templates/blog/blog_list.html -->
 {% extends 'base.html' %}
 {% block title %}All Blogs{% endblock %}
 
 {% block content %}
-<h2>All Blogs</h2>
-<a href="{% url 'create_blog' %}" class="btn btn-success mb-3">Write New Blog</a>
-{% for blog in blogs %}
-    <div class="card mb-3">
-        <div class="card-header">{{ blog.title }} — <small>{{ blog.author }}</small></div>
-        <div class="card-body">
-            <p>{{ blog.content|truncatechars:150 }}</p>
-            <p><small>{{ blog.created_at }}</small></p>
+<div class="blog-list-container">
+   
+
+    {% for blog in blogs %}
+        <div class="blog-card">
+            <div class="blog-card-header">
+                <h3>{{ blog.title }}</h3>
+                <span class="blog-author">by {{ blog.author }}</span>
+            </div>
+            <div class="blog-card-body">
+                <p>{{ blog.content|truncatechars:150 }}</p>
+                <p class="blog-date">🕒 {{ blog.created_at|date:"F j, Y, g:i a" }}</p>
+            </div>
         </div>
-    </div>
-{% empty %}
-    <p>No blog posts found.</p>
-{% endfor %}
+    {% empty %}
+        <p>No blog posts found.</p>
+    {% endfor %}
+</div>
 {% endblock %}
+

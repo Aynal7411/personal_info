@@ -1,12 +1,14 @@
-<!-- templates/blog/create_blog.html -->
 {% extends 'base.html' %}
 {% block title %}Write Your Blog{% endblock %}
 
 {% block content %}
-<h2>Write Your Blog</h2>
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Post Blog</button>
-</form>
+<div class="blog-form-container">
+    <h2>📝 Write Your Blog</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn blog-submit-btn">📢 Post Blog</button>
+    </form>
+</div>
 {% endblock %}
+
