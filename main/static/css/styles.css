@@ -1,18 +1,86 @@
-body {
+/* styles.css */
 
-    font-family: 'Arial', sans-serif;
-    background-color: hsl(0, 67%, 76%);
+body {
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-
-
+    background-color: #f4f6f8;
+    color: #333;
 }
 
-nav {
-    background-color: hsl(0, 36%, 88%);
-    padding: 10px;
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 1rem;
+}
+
+header {
+    background-color: #1f2937;
+    padding: 1rem 0;
+}
+
+.nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: medium;
+}
+
+.logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #f9fafb;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #60a5fa;
+}
+
+.messages {
+    margin-bottom: 1rem;
+}
+
+.message {
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0.5rem 0;
+}
+
+.message.success {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.message.error {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+main {
+    min-height: 70vh;
+}
+
+.footer {
+    text-align: center;
+    background-color: #1f2937;
+    color: #f9fafb;
+    padding: 1rem 0;
 }

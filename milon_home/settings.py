@@ -63,6 +63,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'milon_home.urls'
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://localhost:8000",
+    "http://localhost:8000",
+]
+
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
